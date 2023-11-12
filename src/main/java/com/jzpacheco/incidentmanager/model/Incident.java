@@ -1,6 +1,8 @@
 package com.jzpacheco.incidentmanager.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 import java.util.Objects;
@@ -11,15 +13,21 @@ public class Incident {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long id;
+   private Long id;
    private String name;
    private String description;
+
+   @CreationTimestamp
    private Date createdAt;
+
+   @UpdateTimestamp
    private Date updatedAt;
    private Date closedAt;
 
    public Incident() {
    }
+
+
 
    public long getId() {
     return id;
